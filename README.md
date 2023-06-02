@@ -1,2 +1,2 @@
 # Django-Blog-Project
-This is a Django Blog Project called messagelySite
+This is a Django Blog Project called messagely_site
