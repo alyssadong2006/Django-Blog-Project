@@ -13,14 +13,14 @@ def question_1_return_active_users():
     Return the results of a query which returns a list of all
     active users in the database.
     """
-    User.objects.filter(is_active = True)
+    return User.objects.filter(is_active = True)
 
 def question_2_return_regular_users():
     """
     Return the results of a query which returns a list of users that
     are *not* staff and *not* superusers
     """
-    User.objects.exclude(is_superuser = True, is_staff = True)
+    return User.objects.exclude(is_superuser = True, is_staff = True)
 
 
 def question_3_return_all_posts_for_user(user):
@@ -30,21 +30,21 @@ def question_3_return_all_posts_for_user(user):
     were created.
     """
     username = User.objects.get(username = user)
-    username.blog_posts.all()
+    return username.blog_posts.all()
 
 
 def question_4_return_all_posts_ordered_by_title():
     """
     Return all Post objects, ordered by their title.
     """
-    Post.objects.order_by('title')
+    return Post.objects.order_by('title')
 
 def question_5_return_all_post_comments(post):
     """
     Return all the comments made for the post provided in order
     of last created.
     """
-    Comment.objects.filter(post_id = post).order_by('updated')
+    return Comment.objects.filter(post_id = post).order_by('updated')
 
 def question_6_return_the_post_with_the_most_comments():
     """
@@ -52,7 +52,7 @@ def question_6_return_the_post_with_the_most_comments():
     the database. Do not concern yourself with approval status;
     return the object which has generated the most activity.
     """
-    Post.objects.alias(
+    return Post.objects.alias(
         num_comments = Count('comments')
         ).order_by('-num_comments')[:1]
 
