@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang = "en">
+{% load static %} <link rel = "stylesheet" type = "text/css" href = '{% static "css/base.css" %}' >
+<head>
+    <meta charset = "utf-8">
+    <title> My Blog - {% block page_title %}An awesome blog{% endblock %}</title>
+</head>
+
+<body>
+    <header id = "site-header">
+        <h1>My Blog</h1>
+        <p>A blog about awesomeness</p>
+    </header>
+
+    <nav id = "top-nav">
+            <a href = "#">Home</a>
+            <a href = "#">About</a>
+            <a href = "#">Posts</a>
+            <a href = "#">Contacts</a>
+    </nav>
+    <hr>
+
+    <main id = "main-content">
+        {% block main %}
+        {% endblock %}
+    </main>
+
+    <footer id = "site-footer">
+        Copyright &copy;{% now 'Y' %}
+    </footer>
+</body>
+</html>
+<!--how to add image : <img src="{% static "blog/logo.png" %}" alt="Logo">-->
